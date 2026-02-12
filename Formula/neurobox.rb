@@ -8,8 +8,6 @@ class Neurobox < Formula
 
   def install
     binary = "neurobox"
-    chmod 0755, binary
-    system "xattr", "-d", "com.apple.quarantine", binary rescue nil
     system "codesign", "--force", "-s", "-", binary rescue nil
     bin.install "neurobox" => "nbx"
   end
