@@ -1,10 +1,10 @@
 class Neurobox < Formula
   desc "OCI-Compatible Transactional Sandbox"
   homepage "https://github.com/vikas-magar/Neurobox"
-  version "0.8.0"
+  version "0.16.0"
 
-  url "https://github.com/vikas-magar/Neurobox/releases/download/v#{version}/neurobox-macos.tar.gz"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  url "https://github.com/vikas-magar/Neurobox/releases/download/v0.16.0/neurobox-macos.tar.gz"
+  sha256 "2ef6cfc0583ebc69f0bd7128c32ee277de0c0a50c2a7094a346de55dffafefa7"
 
   def install
     bin.install "neurobox" => "nbx"
