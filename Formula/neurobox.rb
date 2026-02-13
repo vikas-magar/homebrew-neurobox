@@ -1,16 +1,16 @@
 class Neurobox < Formula
   desc "OCI-Compatible Transactional Sandbox"
   homepage "https://nbx.vercel.app"
-  version "1.0.5"
+  version "1.0.7"
 
   url "https://github.com/vikas-magar/homebrew-neurobox/releases/download/v#{version}/neurobox-macos.tar.gz"
-  sha256 "acd82d5032cadbb887d09940bcacd57e6d70265188885ed55c25e892e4fd397e"
+  sha256 "afce35fb383282087d0e70903afd389a47de3810d6529ea34701d4cee857ec8d"
 
   def install
     binary = "neurobox"
     chmod 0755, binary
     system "xattr", "-d", "com.apple.quarantine", binary rescue nil
-    system "codesign", "--force", "-s", "-", binary rescue nil
+    system "codesign", "--entitlements", "entitlements.plist", "--force", "-s", "-", binary rescue nil
     bin.install "neurobox" => "nbx"
   end
 
