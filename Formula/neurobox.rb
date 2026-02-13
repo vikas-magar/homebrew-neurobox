@@ -9,9 +9,9 @@ class Neurobox < Formula
   def install
     binary = "neurobox"
     chmod 0755, binary
-    system("xattr", "-d", "com.apple.quarantine", binary) rescue puts "Note: Quarantine flag not present."
-    system "codesign", "--entitlements", "entitlements.plist", "--force", "-s", "-", binary rescue nil
-    bin.install "neurobox" => "nbx"
+    system "/usr/bin/xattr -d com.apple.quarantine #{binary} 2>/dev/null || true"
+    system "codesign --entitlements entitlements.plist --force -s - #{binary} 2>/dev/null || true"
+    bin.install binary => "nbx"
   end
 
   test do
